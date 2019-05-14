@@ -22,7 +22,8 @@ class LoginVC: UIViewController {
         
         ErrorLabel.isHidden = true
         ErrorLabel.text = "Email sau parola invalide"
-        
+        EmailTextField.text = "Email@me.com"
+        PasswordTextField.text = "pass"
     }
 
     @IBAction func DoLogin(_ sender: Any) {
