@@ -24,24 +24,54 @@ class FormVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-}
+        
+    }
     
     @IBAction func sendButtonPressed(_ sender: Any) {
         
-     print(firstNameTextField.text,
-           
-           lastNameTextField.text,
-           
-           emailNameTextField.text,
-           
-           phoneTextField.text,
+        print(firstNameTextField.text,
+              
+              lastNameTextField.text,
+              
+              emailNameTextField.text,
+              
+              phoneTextField.text,
+              
+              tehnologySegmentedControl.selectedSegmentIndex,
+              tehnologySegmentedControl.titleForSegment(at: tehnologySegmentedControl.selectedSegmentIndex),
+              reasonTextView.text,
+              
+              dateDataPicker.date)
+        
+        var user: User = User()
+        
+        user.firstName = firstNameTextField.text
+        user.lastName = lastNameTextField.text
+        user.email = emailNameTextField.text
+        user.phone = phoneTextField.text
+        
+        
+        print("----- USER -----")
+        print(user)
+        
+        var formData: FormData = FormData()
+        formData.user = user
+        formData.technology = tehnologySegmentedControl.selectedSegmentIndex
+        formData.reason = reasonTextView.text
+        formData.contactDate = dateDataPicker.date
+        
+        
+        print("----- FORM DATA -----")
+        print(formData)
+        
+        
+        
+        
+
+        
     
-        tehnologySegmentedControl.selectedSegmentIndex,
-        tehnologySegmentedControl.titleForSegment(at: tehnologySegmentedControl.selectedSegmentIndex),
-        reasonTextView.text,
-           
-           dateDataPicker.date)
+        
+        
     }
     
     
@@ -55,3 +85,4 @@ class FormVC: UIViewController {
     
     
 }
+
