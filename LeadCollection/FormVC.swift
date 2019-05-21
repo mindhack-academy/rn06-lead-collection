@@ -29,20 +29,20 @@ class FormVC: UIViewController {
     
     @IBAction func sendButtonPressed(_ sender: Any) {
         
-        print(firstNameTextField.text,
-              
-              lastNameTextField.text,
-              
-              emailNameTextField.text,
-              
-              phoneTextField.text,
-              
-              tehnologySegmentedControl.selectedSegmentIndex,
-              tehnologySegmentedControl.titleForSegment(at: tehnologySegmentedControl.selectedSegmentIndex),
-              reasonTextView.text,
-              
-              dateDataPicker.date)
-        
+        //        print(firstNameTextField.text,
+        //
+        //              lastNameTextField.text,
+        //
+        //              emailNameTextField.text,
+        //
+        //              phoneTextField.text,
+        //
+        //              tehnologySegmentedControl.selectedSegmentIndex,
+        //              tehnologySegmentedControl.titleForSegment(at: tehnologySegmentedControl.selectedSegmentIndex),
+        //              reasonTextView.text,
+        //
+        //              dateDataPicker.date)
+        //
         var user: User = User()
         
         user.firstName = firstNameTextField.text
@@ -64,25 +64,38 @@ class FormVC: UIViewController {
         print("----- FORM DATA -----")
         print(formData)
         
+        // add to StorageManager
+        StorageManager.shared.addData(formData: formData)
         
+        //print StoreageManager data
+        print(StorageManager.shared.getData())
         
-        
-
-        
-    
+        // reset form
+        resetForm()
         
         
     }
-    
-    
-    
-    
     
     @IBAction func resetButtonPressed(_ sender: Any) {
-        
+        resetForm()
         
     }
     
+    func resetForm()  {
+        
+        self.firstNameTextField.text = ""
+        self.lastNameTextField.text = ""
+        self.dateDataPicker.date = Date()
+        self.emailNameTextField.text = ""
+        self.phoneTextField.text = ""
+        self.reasonTextView.text = ""
+        self.tehnologySegmentedControl.selectedSegmentIndex = 0
+        
+        self.firstNameTextField.becomeFirstResponder()
+        
+    }
     
 }
+
+
 
