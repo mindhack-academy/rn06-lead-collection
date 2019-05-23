@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FormData {
+class FormData: Codable {
     
     var user: User?
     
@@ -20,7 +20,7 @@ class FormData {
     
 }
 
-class User {
+class User: Codable {
     
     var firstName: String?
     var lastName: String?
@@ -30,12 +30,13 @@ class User {
     
 }
 
-class Technology {
+class Technology: Codable {
     
     var title: String?
     var uid: String?
     
     
 }
+
 
 
